@@ -1,1 +1,0 @@
-{"virtualbox":{"/var/www/html":{"guestpath":"/var/www/html","hostpath":"C:/Users/Omar Malave/Documents/migrate-images/html","disabled":false,"__vagrantfile":true},"/vagrant":{"guestpath":"/vagrant","hostpath":"C:/Users/Omar Malave/Documents/migrate-images","disabled":false,"__vagrantfile":true}}}

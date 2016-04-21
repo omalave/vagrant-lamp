@@ -107,10 +107,29 @@
     .done(function() {
       $( "#cog2" ).remove();      
       $( ".console" ).append( "<p><code>"+getTime()+" Archivo procesado</code></p>" );
+      $( ".console" ).append( "<p><code>"+getTime()+" Bajando imagenes, espere</code></p>" );
+      $( ".console" ).append( "<p id='cog3'><i class='fa fa-cog fa-spin fa-3x fa-fw margin-bottom'></i></p>" );  
+      download();     
     })
     .fail(function() { 
       $( "#cog2" ).remove();      
       $( ".console" ).append( "<p><code>"+getTime()+" Error al procesar el archivo</code></p>" );
+    });
+
+  }
+
+  function download() {
+
+    var jqxhr = $.get( "download.php", function() {
+      
+    })
+    .done(function() {
+      $( "#cog3" ).remove();      
+      $( ".console" ).append( "<p><code>"+getTime()+" Download de Imagenes, finalizado con exito</code></p>" );
+    })
+    .fail(function() { 
+      $( "#cog3" ).remove();         
+      $( ".console" ).append( "<p><code>"+getTime()+" Error al bajar las Imagenes</code></p>" );
     });
 
   }
