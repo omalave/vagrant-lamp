@@ -24,8 +24,14 @@
     <div class="container">
       <div class="row row-title">
         <span class="page-title pull-left">News Crossover</span>
-        <button type="button" class="btn btn-primary pull-right"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Publish your news!</button>
+        <a href="/dashboard" class="btn btn-primary pull-right"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Publish your news!</a>
       </div>
+
+      <div class="row row-news">
+        <p class="no-news">There is no news!</p>
+
+      </div>
+
 
     </div>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
