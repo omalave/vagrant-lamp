@@ -26,37 +26,62 @@
 
     <div class="container">
       <div class="row row-title">
-        <span class="page-title pull-left"><a href="/">News Crossover</a></span>
-        <a href="/dashboard/addnews_view" class="btn btn-primary pull-right"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Add news!</a>
+        <span class="page-title pull-left">News Crossover</span>
+        
       </div>
 
-      <div class="row row-news">
+      <div class="row row-formnews">
+        <?php echo form_open_multipart('dashboard/do_upload', array('class' => 'form-horizontal', 'role' => 'form')); ?>
+        <fieldset>
 
-        <table id="myNews" class="table table-striped table-bordered" cellspacing="0" width="100%">
-            <thead>
-                <tr>
-                    <th>News Title</th>
-                    <th>Date</th>
-                </tr>
-            </thead>
-            <tbody>
-               
-              <?php
+        <!-- Form Name -->
+        <legend>Add new article</legend>
 
-              foreach ($news as $article) {
-                echo "<tr>";
-                echo "<td><a href='dashboard/getNewsDetail/".$article['newsId']."'>".$article['newsTitle']."</a></td>";
-                echo "<td>".$article['newsDate']."</td>";
-                echo "</tr>";            
-              }
+        <div class="form-group">
+          <div class="col-lg-3">
+            <label for="news_title">News Title</label>
+          </div>
+          <div class="col-lg-6">
+          <input type="text" class="form-control" id="news_title" name="news_title" required="true">
+          </div>    
+        </div>
 
-              ?>                
+        <div class="form-group">
+          <div class="col-lg-3">
+            <label for="news_photo">News Photo</label>
+          </div>
+          <div class="col-lg-6">
+          <input type="file" id="news_photo" name="news_photo" required="true">
+          </div>    
+        </div>
 
-            </tbody>
-        </table>
+        <div class="form-group">
+          <div class="col-lg-3">
+            <label for="news_text">News Text</label>
+          </div>
+          <div class="col-lg-6">
+          <textarea class="form-control" rows="8" name="news_text" id="news_text" required="true"></textarea>
+          </div>    
+        </div>
 
+        <p>
+          <?php 
+          if (isset($error)) {
+            echo $error;
+          }
+          ?>
+          <?php echo validation_errors(); ?>
+
+        </p>
+
+        <div class="pull-right">
+          <button type="submit" class="btn btn-primary">Save Article</button>
+          <button type="button" class="btn btn-danger">Cancel</button>
+        </div>
+
+        </fieldset>
+        </form>
       </div>
-
 
     </div>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -74,4 +99,4 @@
     </script>
 
   </body>
-</html>
+</html> 

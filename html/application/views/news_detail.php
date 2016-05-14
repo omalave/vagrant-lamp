@@ -27,36 +27,20 @@
     <div class="container">
       <div class="row row-title">
         <span class="page-title pull-left"><a href="/">News Crossover</a></span>
-        <a href="/dashboard/addnews_view" class="btn btn-primary pull-right"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Add news!</a>
+        <a href="/home/download_pdf/<?=$news->newsId?>" class="btn btn-primary pull-right"><span class="glyphicon glyphicon-floppy-save" aria-hidden="true"></span> Download PDF</a>
       </div>
 
-      <div class="row row-news">
-
-        <table id="myNews" class="table table-striped table-bordered" cellspacing="0" width="100%">
-            <thead>
-                <tr>
-                    <th>News Title</th>
-                    <th>Date</th>
-                </tr>
-            </thead>
-            <tbody>
-               
-              <?php
-
-              foreach ($news as $article) {
-                echo "<tr>";
-                echo "<td><a href='dashboard/getNewsDetail/".$article['newsId']."'>".$article['newsTitle']."</a></td>";
-                echo "<td>".$article['newsDate']."</td>";
-                echo "</tr>";            
-              }
-
-              ?>                
-
-            </tbody>
-        </table>
-
+      <div class="row">
+        
+        <h1><?=$news->newsTitle?></h1>
+        <img src="/uploads/<?=$news->newsPhoto?>">
+        <?php 
+          $timestamp = strtotime($news->newsDate);
+          $dmy = date("m/d/Y", $timestamp);
+        ?>
+        <h4><?=$dmy?></h4>
+        <h4><?=$news->newsText?></h4>
       </div>
-
 
     </div>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

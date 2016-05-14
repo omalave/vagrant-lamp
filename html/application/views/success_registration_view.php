@@ -24,37 +24,14 @@
     <div class="container">
       <div class="row row-title">
         <span class="page-title pull-left">News Crossover</span>
-        <span class="pull-right">
-        <a href="/dashboard" class="btn btn-primary"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Publish your news!</a>
-        <a href="/home/rss_feed" class="btn btn-primary"><span class="glyphicon glyphicon-flag" aria-hidden="true"></span> Add our rss news feed!</a>          
-        </span>
+        <a href="/dashboard" class="btn btn-primary pull-right"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Publish your news!</a>
       </div>
 
       <div class="row row-news">
-      <?php
-
-        if (!$news10) { ?>
-          <p class="no-news">There is no news!</p>
-        <?php  } else {
-
-        foreach ($news10 as $article) {
-        ?>
-
-        <?php echo "<h1><a href='home/getNewsDetail/".$article['newsId']."'>".$article['newsTitle']."</a></h1>";?>
-
-        <img src="/uploads/<?=$article["newsPhoto"]?>">
-
-        <?php 
-          $timestamp = strtotime($article["newsDate"]);
-          $dmy = date("m/d/Y", $timestamp);
-        ?>
-        <h4><?=$dmy?></h4>
-      <hr>
-      <?php
-        }
-
-      } ?>
-
+        <div class="alert alert-warning" role="alert">
+          <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
+          We sent to you a email, with instructions for activate your account.
+        </div>
       </div>
 
 
